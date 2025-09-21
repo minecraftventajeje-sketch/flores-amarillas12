@@ -20,7 +20,29 @@
   --speed-leaf: 2s;
 }
 
-body {
+body {<!-- Reproductor de música -->
+<audio id="musica" loop>
+  <source src="ssvid.net--Floricienta-Flores-Amarillas-Letra.mp3" type="audio/mpeg">
+  Tu navegador no soporta audio HTML5.
+</audio>
+
+<button id="btnMusica">▶ Reproducir música</button>
+
+<script>
+  const musica = document.getElementById("musica");
+  const boton = document.getElementById("btnMusica");
+
+  boton.addEventListener("click", () => {
+    if (musica.paused) {
+      musica.play();
+      boton.textContent = "⏸ Pausar música";
+    } else {
+      musica.pause();
+      boton.textContent = "▶ Reproducir música";
+    }
+  });
+</script>
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1346,3 +1368,4 @@ header {
   </script>
 </body>
 </html>
+
