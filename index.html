@@ -214,39 +214,32 @@ body {<!-- Reproductor de música -->
 }
 
 ..flowers {
-  position: fixed;   /* en vez de relative */
-  bottom: 0;         /* se pega al suelo */
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 20px;         /* separación entre flores */
-  z-index: 2;
-}
-
-.flower {
-  position: static;  /* quita el absolute */
-  animation: none !important; /* desactiva animaciones */
-}
-      
-}
-
-..flowers {
-  position: fixed;   /* pegado abajo */
-  bottom: 0;
+  position: fixed;   /* siempre visible abajo */
+  bottom: 0;         /* pegado al suelo */
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 20px;
   z-index: 2;
 }
+/* Animación para que las flores se muevan de lado */
+@keyframes moveSide {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(60px); } /* derecha */
+  100% { transform: translateX(0); }    /* regresa */
+}
 
 .flower {
-  position: static;             /* ya no absolute */
-  animation: none !important;   /* desactiva animaciones */
+  position: relative;
+  animation: moveSide 4s ease-in-out infinite;
 }
 
-      
-}
+/* Retrasos para que no todas se muevan igual */
+.flower:nth-child(1) { animation-delay: 0s; }
+.flower:nth-child(2) { animation-delay: 1s; }
+.flower:nth-child(3) { animation-delay: 2s; }
+.flower:nth-child(4) { animation-delay: 3s; }
+
 
 .flower--1 {
   animation: moving-flower-1 4s linear infinite;
@@ -1390,6 +1383,7 @@ header {
   </script>
 </body>
 </html>
+
 
 
 
