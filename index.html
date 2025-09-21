@@ -213,10 +213,21 @@ body {<!-- Reproductor de música -->
   }
 }
 
-.flowers {
-  position: relative;
-  transform: scale(0.7); /* Reducido de 0.9 a 0.7 */
+..flowers {
+  position: fixed;   /* en vez de relative */
+  bottom: 0;         /* se pega al suelo */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;         /* separación entre flores */
   z-index: 2;
+}
+
+.flower {
+  position: static;  /* quita el absolute */
+  animation: none !important; /* desactiva animaciones */
+}
+      
 }
 
 .flower {
@@ -1368,4 +1379,5 @@ header {
   </script>
 </body>
 </html>
+
 
