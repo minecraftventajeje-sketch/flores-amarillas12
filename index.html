@@ -213,32 +213,27 @@ body {<!-- Reproductor de música -->
   }
 }
 
-..flowers {
-  position: fixed;   /* siempre visible abajo */
-  bottom: 0;         /* pegado al suelo */
-  left: 50%;
-  transform: translateX(-50%);
+...flowers {
+  position: fixed;   /* siempre visibles */
+  bottom: 0;         /* pegadas al suelo */
+  left: 0;           /* arrancan desde la izquierda */
+  width: 100%;       /* que ocupe todo el ancho */
   display: flex;
-  gap: 20px;
+  justify-content: center; /* centradas en el ancho */
+  gap: 40px;
   z-index: 2;
-}
-/* Animación para que las flores se muevan de lado */
-@keyframes moveSide {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(60px); } /* derecha */
-  100% { transform: translateX(0); }    /* regresa */
 }
 
 .flower {
-  position: relative;
-  animation: moveSide 4s ease-in-out infinite;
+  animation: sway 3s ease-in-out infinite;
 }
 
-/* Retrasos para que no todas se muevan igual */
-.flower:nth-child(1) { animation-delay: 0s; }
-.flower:nth-child(2) { animation-delay: 1s; }
-.flower:nth-child(3) { animation-delay: 2s; }
-.flower:nth-child(4) { animation-delay: 3s; }
+@keyframes sway {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(20px); }
+  100% { transform: translateX(0); }
+}
+
 
 
 .flower--1 {
@@ -1383,6 +1378,7 @@ header {
   </script>
 </body>
 </html>
+
 
 
 
